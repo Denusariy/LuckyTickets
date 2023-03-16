@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Вариант1. Количество счастливых билетов: " + variant1()); //скорость ~10ms
         System.out.println("Вариант2. Количество счастливых билетов: " + variant2()); //скорость ~17ms
-        System.out.println("Вариант3. Количество счастливых билетов: " + variant3()); //скорость ~1000ms
+        System.out.println("Вариант3. Количество счастливых билетов: " + variant3()); //скорость ~1090ms
+        System.out.println("Вариант4. Количество счастливых билетов: " + variant4()); //скорость ~1070ms
         //во всех вариантах ответ 55251
     }
 
@@ -53,6 +54,17 @@ public class Main {
                     == ((Integer.parseInt(s.substring(3, 4)))
                     + (Integer.parseInt(s.substring(4, 5)))
                     + (Integer.parseInt(s.substring(5)))))
+                result++;
+        }
+        return result;
+    }
+
+    static int variant4() {
+        int result = 0;
+        String s;
+        for(int i = 1001; i < 1000000; i++){
+            s = String.format("%06d", i);
+            if((s.charAt(0) + s.charAt(1) + s.charAt(2)) == (s.charAt(3) + s.charAt(4) + s.charAt(5)))
                 result++;
         }
         return result;
